@@ -1,0 +1,8 @@
+Use case: precise-object-edit.
+Asset type: high-resolution photographic website hero asset.
+Input image: the supplied palm-tree seaside sunset photograph is the edit target, not a loose style reference.
+Primary request: conservatively enhance and upscale this exact photograph to ultra-high definition for a large Retina display. Aim for 2880 x 2848 pixels or the highest available near-square resolution. Preserve the original nearly square framing and exact scene geometry.
+Improve natural fine detail and local definition in palm fronds, tree-bark texture, grass blades, hut roofing and the distant sea; gently remove JPEG artifacts and blur. Keep delicate detail photographic and plausible, not painted or crunchy.
+Invariants: keep all existing palm trunks and fronds in the same positions, the left path, lawn, buildings, distant people, sea horizon, low sun, long diagonal shadows, blue sky, clouds and the original warm sunset/green lawn colors. Preserve camera perspective, object placement and exposure. Do not redesign the scene or add/remove objects. Keep the whole original framing; do not turn it into a wide crop.
+Avoid: oversharpening halos, HDR look, excessive saturation, plastic texture, fabricated prominent details, changed architecture, changed shadows, any text, labels, logos, border or watermark.
+Return only the enhanced original photo.

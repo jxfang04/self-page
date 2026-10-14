@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="760" viewBox="0 0 1800 760" fill="none">
+<defs>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#b8c9c7"/><stop offset=".65" stop-color="#e5dfc7"/><stop offset="1" stop-color="#e9c9a6"/></linearGradient>
+<linearGradient id="lake" x2="0" y2="1"><stop stop-color="#b2c2be"/><stop offset="1" stop-color="#647f7c"/></linearGradient>
+<linearGradient id="front" x2="1" y2="1"><stop stop-color="#183f3e"/><stop offset="1" stop-color="#0d282c"/></linearGradient>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+</defs>
+<g filter="url(#grain)"><path fill="url(#sky)" d="M0 0h1800v760H0z"/><circle cx="1280" cy="209" r="63" fill="#f8e8c4" opacity=".82"/>
+<path d="M0 440L90 335 195 358 297 238 379 303 451 255 582 404 715 325 811 388 940 283 1034 354 1159 296 1233 340 1360 241 1438 328 1540 213 1692 339 1800 277V630H0Z" fill="#98aaa6"/>
+<path d="M0 478L98 427 189 446 360 309 438 399 568 363 692 428 848 343 941 456 1137 349 1279 412 1437 341 1590 391 1800 310V638H0Z" fill="#708e88"/>
+<path d="M0 508L155 465 245 497 375 442 510 487 650 465 780 517 1010 462 1190 494 1348 430 1478 478 1652 418 1800 457V646H0Z" fill="#537772"/>
+<path d="M0 537C307 535 378 570 641 541S1209 517 1800 543V760H0Z" fill="url(#lake)"/>
+<g stroke="#e9e5cf" opacity=".25"><path d="M882 566h584M701 592h746M1144 619h489M478 634h523M718 672h731M1288 705h299M256 712h270"/></g>
+<path d="M0 416L84 450 159 456 238 516 301 548 473 593 550 631 699 659 811 714 1010 760H0Z" fill="url(#front)"/>
+<path d="M1800 601L1660 642 1567 686 1452 706 1387 760H1800Z" fill="#244e4b"/>
+<g fill="#163c39"><path d="M70 363l-34 94h22l-29 43h93l-28-43h22zM131 397l-29 82h17l-22 38h78l-25-38h18zM203 448l-27 75h19l-25 37h79l-24-37h17zM13 346l-28 78h18l-23 41h78l-25-41h17z"/></g></g>
+</svg>
