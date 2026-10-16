@@ -126,10 +126,10 @@ export default {
         "alt": "A boat crossing blue water with an island in the distance"
     },
     {
-        "src": "assets/hobbies/3.jpg",
-        "width": 1920,
-        "height": 1080,
-        "alt": "Mountain scenery above traditional rooftops"
+        "src": "assets/hobbies/14.webp",
+        "width": 1194,
+        "height": 648,
+        "alt": "Reaching toward a cloudy sky beside the sea"
     },
     {
         "src": "assets/hobbies/9.jpg",
