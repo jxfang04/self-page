@@ -82,9 +82,11 @@ ul {list-style:none;padding:0}
 @media(max-width:700px) {
   .about-gallery {max-width:15rem}
 }
-.biography-socials svg {width:2rem;height:2rem}
-.about-chapter .biography-socials {grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
-.about-chapter .biography-socials a {display:flex;align-items:center;justify-content:center;gap:.4rem;min-height:3rem;font-size:1rem;font-weight:600}
+.biography-socials svg {width:1.4rem;height:1.4rem;flex-shrink:0;color:var(--accent-deep)}
+.about-chapter .biography-socials {grid-template-columns:repeat(3,minmax(0,1fr));gap:.3rem}
+.about-chapter .biography-socials a {display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:.45rem;height:auto;min-height:4.5rem;padding:.6rem .15rem;border-radius:.65rem;font-size:.78rem;line-height:1.25;text-align:center;font-weight:600}
+.about-chapter .biography-socials a:hover {color:var(--accent-deep);background:rgba(0,155,121,.07)}
+.about-chapter .biography-socials a:focus-visible {outline:2px solid var(--accent-deep);outline-offset:2px}
 .interest-list:empty {display:none}
 .news-item--empty {grid-template-columns:1fr;pointer-events:none}
 .news-item--empty>span {font-weight:400;color:var(--muted)}

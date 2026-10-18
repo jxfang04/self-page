@@ -27,9 +27,15 @@ function navigation(page,base) {
 }
 function socialLinks(base) {
  const names={github:'GitHub',openreview:'OpenReview',scholar:'Google Scholar',cv:'CV'};
+ const icons={
+  github:'<path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.08c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.94.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.54 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.61 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.3-2.64 5.26-5.15 5.54.4.35.76 1.03.76 2.08v3.07c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/>',
+  openreview:'<g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M8 13h5m-5 4 2 2 5-5"/></g>',
+  scholar:'<g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-6 10 6-10 6L2 9Zm4 3v6c4 3 8 3 12 0v-6m4-3v9"/></g>'
+ };
  return Object.entries(profile.links).filter(([,v])=>v).map(([k,v])=>{
   const label=esc(names[k]??k);
-  return `<a href="${safeUrl(v,base)}" target="_blank" rel="noopener noreferrer">${label} ${arrow}</a>`;
+  const icon=icons[k]?`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${icons[k]}</svg>`:'';
+  return `<a href="${safeUrl(v,base)}" target="_blank" rel="noopener noreferrer">${icon}<span>${label}</span></a>`;
  }).join('');
 }
 function newsList(base) {

@@ -12,7 +12,7 @@ export default {
   email: 'jxfang26@m.fudan.edu.cn',
   otherEmail: 'f18195030@gmail.com',
   avatar: 'assets/IMG_4058.jpeg',
-  links: { github: 'https://github.com/jxfang04', openreview: 'https://openreview.net/profile?id=%7EJiaxin_Fang1', scholar: '', cv: '' },
+  links: { github: 'https://github.com/jxfang04', openreview: 'https://openreview.net/profile?id=%7EJiaxin_Fang1', scholar: 'https://scholar.google.com/citations?user=G9eYz_UAAAAJ', cv: '' },
   tagline: 'Stay curious. Keep exploring.',
   bannerTagline: 'Setbacks are unavoidable, But give up is unforgivable',
   intro: 'Research, ideas, and the things I discover along the way.',
