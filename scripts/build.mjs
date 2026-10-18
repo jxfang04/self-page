@@ -2,8 +2,10 @@ import { mkdir, writeFile, copyFile, cp, access, readFile } from 'node:fs/promis
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import profile from '../src/profile.mjs';
+import { createHash } from 'node:crypto';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = resolve(root, 'dist');
+const styleVersion = createHash('sha256').update(await readFile(resolve(root,'src/styles.css'))).digest('hex').slice(0,12);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 function safeUrl(value, base='./') {
   if (/^https?:\/\//i.test(value)) return esc(value);
@@ -75,7 +77,7 @@ await cp(resolve(root,'assets'),resolve(out,'assets'),{recursive:true});
 await Promise.all(['styles.css','reference.css','app.js'].map(f=>copyFile(resolve(root,'src',f),resolve(out,f))));
 for(const page of pages) {
  const base=page.slug?'../':'./';
- const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${esc(profile.intro)}"><meta name="theme-color" content="#f1faf7"><title>${esc(profile.name)} — ${page.slug?page.label:'Personal Homepage'}</title><link rel="apple-touch-icon" href="${base}assets/apple-touch-icon-beagle.png" sizes="180x180"><link rel="icon" href="${base}assets/beagle-tab-v3.png" type="image/png" sizes="32x32"><link rel="shortcut icon" href="${base}assets/beagle-tab-v3.png" type="image/png"><link rel="stylesheet" href="${base}styles.css"><link rel="preload" href="${base}assets/fonts/cabinet-grotesk-700.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="${base}assets/fonts/allura-400.woff2" as="font" type="font/woff2" crossorigin><script src="${base}app.js" defer></script></head><body class="page-wrapper" id="top"><a class="skip-link" href="#portfolio-main">Skip to content</a>${navigation(page,base)}<div class="page-body"><main class="portfolio-site" id="portfolio-main" tabindex="-1">${page.slug?contentPage(page,base):home(base)}${contact}</main></div>${footer(base)}</body></html>`;
+ const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${esc(profile.intro)}"><meta name="theme-color" content="#f1faf7"><title>${esc(profile.name)} — ${page.slug?page.label:'Personal Homepage'}</title><link rel="apple-touch-icon" href="${base}assets/apple-touch-icon-beagle.png" sizes="180x180"><link rel="icon" href="${base}assets/beagle-tab-v3.png" type="image/png" sizes="32x32"><link rel="shortcut icon" href="${base}assets/beagle-tab-v3.png" type="image/png"><link rel="stylesheet" href="${base}styles.css?v=${styleVersion}"><link rel="preload" href="${base}assets/fonts/cabinet-grotesk-700.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="${base}assets/fonts/allura-400.woff2" as="font" type="font/woff2" crossorigin><script src="${base}app.js" defer></script></head><body class="page-wrapper" id="top"><a class="skip-link" href="#portfolio-main">Skip to content</a>${navigation(page,base)}<div class="page-body"><main class="portfolio-site" id="portfolio-main" tabindex="-1">${page.slug?contentPage(page,base):home(base)}${contact}</main></div>${footer(base)}</body></html>`;
  const dir=resolve(out,page.slug);await mkdir(dir,{recursive:true});await writeFile(resolve(dir,'index.html'),html);
  // Verify every local resource and page link, including GitHub Pages subdirectory paths below.
 }
@@ -84,7 +86,7 @@ for(const page of pages) {
  const dir=resolve(out,page.slug),html=await readFile(resolve(dir,'index.html'),'utf8');
  for(const [,url] of html.matchAll(/(?:src|href|poster)="([^"#]+)"/g)) {
   if(/^(https?:|mailto:)/.test(url)) continue;
-  await access(resolve(dir,url));
+  await access(resolve(dir,url.split('?')[0]));
  }
 }
 const css=await readFile(resolve(out,'reference.css'),'utf8');
