@@ -42,7 +42,7 @@ export default {
     }
   ],
   experience: [
-    { organization: 'COCO Matrix', role: 'Research Intern', start: '2026-05', end: '', period: 'May 2026 — Present', mentors: ['Weikang Wan'], mentorLinks: { 'Weikang Wan': 'https://wkwan7.github.io' }, researchAdvisors: ['Yuxiang Gao', 'Mengdi Xu'] },
+    { organization: 'COCO Matrix', role: 'Research Intern', start: '2026-05', end: '', period: 'May 2026 — Present', mentors: ['Yuxiang Gao', 'Mengdi Xu'] },
     { organization: 'SAI EPIC Lab', role: 'Research Intern', start: '2024-12', end: '2025-07', period: 'Dec 2024 — Jul 2025', mentors: ['Linfeng Zhang'] }
   ],
   projects: [], // { title: 'Project title', description: 'Description', category: 'Research', year: '2026', url: 'https://...', image: 'assets/...' }
